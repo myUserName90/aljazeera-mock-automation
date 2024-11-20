@@ -1,0 +1,20 @@
+{
+  "name": "aljazeera-mock-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
+    "@wdio/allure-reporter": "^9.2.14",
+    "@wdio/selenium-standalone-service": "^8.15.0",
+    "allure-commandline": "^2.32.0",
+    "codeceptjs": "^3.6.7",
+    "webdriverio": "^9.2.14"
+  }
+}
