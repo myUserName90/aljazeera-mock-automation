@@ -6,6 +6,10 @@ exports.config = {
             browser: 'chrome',
             restart: true,
             windowSize: 'maximize',
+            timeouts: {
+                script: 60000,
+                'page load': 60000,
+            }
         }
     },
     gherkin: {
@@ -17,6 +21,12 @@ exports.config = {
             enabled: true,
             require:'@codeceptjs/allure-legacy',
             outputDir: 'allure-results',
+        }
+    },
+    multiple: {
+        parallel: {
+            chunks: 2, // Number of threads
+            browsers: ['chrome'], // Specify the browsers
         }
     }
 }

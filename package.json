@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:verbose": "npx codeceptjs run --features --config config/codecept.conf.js --verbose",
+    "test": "npx codeceptjs run --features --config config/codecept.conf.js",
+    "test:feature": "npx codeceptjs run --features features/livePage/videoPlayer.feature --config config/codecept.conf.js",
+    "test:parallel": "npx codeceptjs run-multiple parallel --config config/codecept.conf.js",
+    "report:generate": "allure generate --clean allure-results",
+    "report:open": "allure open allure-results",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -15,6 +21,7 @@
     "@wdio/selenium-standalone-service": "^8.15.0",
     "allure-commandline": "^2.32.0",
     "codeceptjs": "^3.6.7",
-    "webdriverio": "^9.2.14"
+    "webdriverio": "^9.2.14",
+    "eslint": "^8.47.0"
   }
 }
