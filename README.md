@@ -90,8 +90,8 @@ This project demonstrates test automation for the Al Jazeera website using Codec
 - Generate Allure Reports: After test execution, generate the report with:
 
   ```bash
-  allure generate --clean allure-report
+  allure generate --clean ./allure-results
 
 - Open Allure Report
   ```bash
-   allure open allure-report
+   allure open ./allure-report

@@ -1,5 +1,7 @@
+const path = require("path");
+
 exports.config = {
-    output: './output',
+    output: path.join(__dirname, '../output'),
     helpers: {
         WebDriver: {
             url: 'https://www.aljazeera.com',
@@ -13,14 +15,14 @@ exports.config = {
         }
     },
     gherkin: {
-        features: '../features/**/*.feature',
-        steps: '../step_definitions/*.js',
+        features: './features/**/*.feature',
+        steps: './step_definitions/*.js',
     },
     plugins: {
         allure: {
             enabled: true,
             require:'@codeceptjs/allure-legacy',
-            outputDir: 'allure-results',
+            outputDir: path.join(__dirname,'./allure-results'),
         }
     },
     multiple: {
