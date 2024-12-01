@@ -1,3 +1,5 @@
+const {expect} = require('chai');
+
 class BasePage {
     constructor() {
         this.I = actor();
@@ -7,6 +9,10 @@ class BasePage {
     async navigateTo(path = '') {
         const fullPath = path ? this.basePath + path : this.basePath;
         await this.I.amOnPage(fullPath);
+    }
+
+    async getCurrentUrl(){
+        return this.I.grabCurrentUrl();
     }
 
 
@@ -27,9 +33,12 @@ class BasePage {
         await this.I.waitForElement(selector, timeoutSec);
     }
 
-    async seeElement(selector) {
-        await this.waitForElement(selector);
-        await this.I.seeElement(selector);
+    async isElementVisible(selector) {
+        try {
+            return await this.I.seeElement(selector);
+        } catch {
+            return false;
+        }
     }
 
     async seeText(selector, expectedText) {
@@ -39,13 +48,10 @@ class BasePage {
         }
     }
 
-    async verifyNumberOfVisibleElements(selector, expectedCount) {
-        await this.I.seeNumberOfVisibleElements(selector, expectedCount);
+    async getNumberOfVisibleElements(selector) {
+        await this.I.grabNumberOfVisibleElements(selector);
     }
 
-    async verifyInvisibilityOfElement(selector) {
-        await this.I.dontSeeElement(selector);
-    }
 
     async resizeTheWindow(width, height) {
         await this.I.resizeWindow(width, height);
@@ -56,7 +62,8 @@ class BasePage {
     }
 
     async verifyUrlFragment(fragment) {
-        await this.I.seeInCurrentUrl(fragment);
+        const currentUrl = await this.getCurrentUrl();
+        expect(currentUrl).to.include(fragment, `Expected URL to include "${fragment}", but got "${currentUrl}"`);
     }
 
 

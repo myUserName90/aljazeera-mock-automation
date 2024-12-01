@@ -19,6 +19,7 @@
     "@wdio/allure-reporter": "^9.2.14",
     "@wdio/selenium-standalone-service": "^8.15.0",
     "allure-commandline": "^2.32.0",
+    "chai": "^4.5.0",
     "codeceptjs": "^3.6.7",
     "webdriverio": "^9.2.14"
   }

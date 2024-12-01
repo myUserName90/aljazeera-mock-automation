@@ -8,9 +8,11 @@ When('Video player is loaded', async () => {
 })
 
 Then('Player should be visible', async () => {
-    await basePage.seeElement(livePage.playButton);
+    const isVisible = await basePage.isElementVisible(livePage.player);
+    expect(isVisible, 'The video player should be visible').to.be.true;
 })
 
 Then('the "Switch Player" button should be visible', async () => {
-    await basePage.seeElement(livePage.switchPlayer);
+    const isVisible = await basePage.isElementVisible(livePage.switchPlayer);
+    expect(isVisible, 'The "Switch Player" button should be visible').to.be.true;
 })

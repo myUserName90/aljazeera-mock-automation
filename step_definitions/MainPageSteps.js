@@ -5,7 +5,8 @@ const basePage = new BasePage();
 
 
 Then('I should see the "Most Popular" section', async () => {
-    await basePage.seeElement(mainPage.mostPopularSection)
+    const isVisible = await basePage.isElementVisible(mainPage.mostPopularSection);
+    expect(isVisible, 'The "Most Popular" section should be visible').to.be.true;
 });
 
 When('I click on the empty white space on the left side of the website\'s logo', async () => {
@@ -17,18 +18,20 @@ When('I click the "Skip to Most Read" option in the "Bypass Blocks" menu', async
 });
 
 Then('the "Most Popular" section should contain {int} posts', async (postCount) => {
-    await basePage.verifyNumberOfVisibleElements(mainPage.mostPopularPosts, postCount);
+    const actualCount = await basePage.getNumberOfVisibleElements(mainPage.mostPopularPosts);
+    expect(actualCount, `Expected ${postCount} posts, but found ${actualCount}`).to.equal(postCount);
 });
 
 Then('the "Most Popular" section should not be visible',async () => {
-    await basePage.verifyInvisibilityOfElement(mainPage.mostPopularSection);
+    const isVisible = await basePage.isElementVisible(mainPage.mostPopularSection);
+    expect(isVisible, 'The "Most Popular" section should not be visible').to.be.false;
 });
 
 Then('I should be able to navigate to the "Most Read" section', async () => {
-    await basePage.seeElement(mainPage.mostPopularAnchor);
+    await basePage.isElementVisible(mainPage.mostPopularAnchor);
 });
 
 Then('the "Bypass Blocks" menu should be visible', async () => {
-    await basePage.seeElement(mainPage.bypassBlockMenu);
+    await basePage.isElementVisible(mainPage.bypassBlockMenu);
 });
 
