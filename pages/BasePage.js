@@ -1,13 +1,14 @@
 const {expect} = require('chai');
+const config = require('../configuration//config');
 
 class BasePage {
     constructor() {
         this.I = actor();
-        this.basePath = 'https://www.aljazeera.com/';
+        this.baseUrl = config.baseUrl;
     }
 
     async navigateTo(path = '') {
-        const fullPath = path ? this.basePath + path : this.basePath;
+        const fullPath = path ? '${this.baseUrl}${path}' : this.baseUrl;
         await this.I.amOnPage(fullPath);
     }
 
