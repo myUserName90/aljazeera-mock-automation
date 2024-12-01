@@ -79,19 +79,28 @@ This project demonstrates test automation for the Al Jazeera website using Codec
 - Run the following commands to execute tests:
 
    ````bash
-   npx codeceptjs run --features --config ./config/codecept.conf.js
+   npm run test
+
+- Run tests in verbose mode
+
+  ````bash
+   npm run test:verbose
 
 - Run Tests for Specific Feature
   ```bash 
-  npx codeceptjs run --features features/<feature-file>.feature --config ./config/codecept.conf.js
+  npm run test:feature <package to feature file>
+  
+- Run Test in parallel mode
+    ````bash
+  npm run test:test:parallel
 
 ## Reporting
 
 - Generate Allure Reports: After test execution, generate the report with:
 
   ```bash
-  allure generate --clean ./allure-results
+  npm run report:generate
 
 - Open Allure Report
   ```bash
-   allure open ./allure-report
+   npm run report:open
