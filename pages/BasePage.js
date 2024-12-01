@@ -45,6 +45,10 @@ class BasePage {
         }
     }
 
+    async isElementLoading(selector) {
+        return this.I.grabCssPropertyFrom(selector,'opacity');
+    }
+
     async getText(selector) {
         return this.I.grabTextFrom(selector);
     }
@@ -69,6 +73,10 @@ class BasePage {
     async verifyUrlFragment(fragment) {
         const currentUrl = await this.getCurrentUrl();
         expect(currentUrl).to.include(fragment, `Expected URL to include "${fragment}", but got "${currentUrl}"`);
+    }
+
+    async getElementAttribute(selector,value) {
+        return this.I.grabAttributeFrom(selector, value);
     }
 
 
