@@ -1,12 +1,12 @@
 const environments = {
     development: {
-        baseUrl: 'http://localhost:3000/',
+        baseUrl: 'http://localhost:3000',
     },
     staging: {
-        baseUrl: 'https://aljazeera.com/',
+        baseUrl: 'https://aljazeera.com',
     },
     production: {
-        baseUrl: 'https://aljazeera.com/',
+        baseUrl: 'https://aljazeera.com',
     },
 };
 

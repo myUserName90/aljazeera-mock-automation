@@ -8,7 +8,9 @@ class BasePage {
     }
 
     async navigateTo(path = '') {
-        const fullPath = path ? '${this.baseUrl}${path}' : this.baseUrl;
+        const formattedPath = path.startsWith('/') ? path : `/${path}`;
+        const fullPath = path ? `${this.baseUrl}${formattedPath}` : this.baseUrl;
+        console.log(`Navigating to: ${fullPath}`);
         await this.I.amOnPage(fullPath);
     }
 
