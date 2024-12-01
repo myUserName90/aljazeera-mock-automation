@@ -1,21 +1,10 @@
-const BasePage = require('./BasePage');
 
-class LivePage extends BasePage {
+class LivePage {
     constructor() {
-        super();
         this.playButton = '.vjs-play-control';
-        this.switchPlayer='#liveStreamPlayerHelpButton';
+        this.switchPlayer = '#liveStreamPlayerHelpButton';
         this.player = 'video-js.playing';
-    }
-    verifyPlayButtonVisibility(){
-        this.isElementVisible(this.playButton);
-    }
-
-    verifySwitchPlayerButtonVisibility(){
-        this.isElementVisible(this.switchPlayer);
-    }
-    waitForPlayerLoaded(){
-        this.waitForElement(this.player);
+        this.youtubePlayer = '.youtube-live-stream-player';
     }
 
 }
