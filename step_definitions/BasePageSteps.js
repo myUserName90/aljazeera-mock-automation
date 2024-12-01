@@ -28,7 +28,9 @@ When('I press the {string} key',  async (key) => {
 
 Then('the URL should change to include {string}',async (urlFragment) => {
     await basePage.verifyUrlFragment(urlFragment);
-})
+});
+
+
 
 
 

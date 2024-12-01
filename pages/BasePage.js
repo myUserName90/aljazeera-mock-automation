@@ -1,5 +1,5 @@
 const {expect} = require('chai');
-const config = require('../configuration//config');
+const config = require('../configuration/config');
 
 class BasePage {
     constructor() {
@@ -38,21 +38,23 @@ class BasePage {
 
     async isElementVisible(selector) {
         try {
-            return await this.I.seeElement(selector);
+            const elementCount = await this.I.grabNumberOfVisibleElements(selector)
+            return elementCount > 0;
         } catch {
             return false;
         }
     }
 
-    async seeText(selector, expectedText) {
-        const text = await this.I.grabTextFrom(selector);
-        if (text !== expectedText) {
-            throw new Error(`Expected text "${expectedText}" but found "${text}"`);
-        }
+    async getText(selector) {
+        return this.I.grabTextFrom(selector);
+    }
+
+    async getTexts(selector) {
+        return this.I.grabTextFromAll(selector);
     }
 
     async getNumberOfVisibleElements(selector) {
-        await this.I.grabNumberOfVisibleElements(selector);
+        return this.I.grabNumberOfVisibleElements(selector);
     }
 
 

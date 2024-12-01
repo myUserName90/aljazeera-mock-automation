@@ -9,6 +9,7 @@ class MainPage {
         this.mostReadLink = '.container--white [href="#most-read-container"]';
         this.mostPopularAnchor = '#most-popular';
         this.headerBanner = '.site-header'
+        this.mostPopularHeader = '#trending-articles-heading'
     }
 }
 module.exports = MainPage;
