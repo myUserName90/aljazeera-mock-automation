@@ -2,6 +2,8 @@ const LivePage = require('../pages/LivePage');
 const livePage = new LivePage();
 const BasePage = require('../pages/BasePage');
 const basePage = new BasePage();
+const { expect } = require('chai');
+
 
 When('Video player is loaded', async () => {
     await basePage.waitForElement(livePage.player);

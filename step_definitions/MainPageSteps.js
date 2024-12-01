@@ -2,6 +2,8 @@ const MainPage = require('../pages/MainPage');
 const mainPage = new MainPage();
 const BasePage = require('../pages/BasePage');
 const basePage = new BasePage();
+const { expect } = require('chai');
+
 
 
 Then('I should see the "Most Popular" section', async () => {
